@@ -1,0 +1,48 @@
+#Author: Mobashir Sadat
+#msadat3
+#668038298
+
+
+
+The functinality of the functions are self-explanatory from their names:
+
+Document.py: Class to represent every document
+1. Preprocess: preprocesses, removes unnecessary words, POS tags, creates the vocabulary
+2. word_to_idx: returns the index of a word in the vocabulary
+3. Create_word_graph: creating the adjacency matrix
+4. get_adjacent_indices: return the indices adjacent to a word in the adjacency matrix
+5. update_scores: one ieteration of page rank
+6. get_page_rank_scores: gets page rank scores for every word in vocab by running until convergence to specified number of iterations(10)
+7. get_phrases: creates unigram, bigram, trigram phrases
+8. get_top_k_phrases: calls get_page_rank_scores to get all word level scores, calculates the scores of phrases by summing and returns top k phrases
+9. get_gold_labels: reads gold label files and preprcocess gold labels
+10. get_reciprocal_rank: returns reciprocal rank of one document
+
+Main.py: 
+1. getStopWordsList: get the stop words from a file
+2. calculate_MRR: gets MRR by extracting keyphrases from all documents given the directory locations of abstracts and gold labels, value of k, alpha, highest number of iterations and window size
+
+
+
+
+###############################HOW To RUM####################################
+1. Run a command similar to:
+
+python Main.py "D:/CS 582/HW4/Page_Rank_Words/stopwords.txt" "D:/CS 582/HW4/www/abstracts" "D:/CS 582/HW4/www/gold/" 6 
+
+After python, first argument: python file location, second argument: stopwords file location, third argument: the folder where the abstracts are, fourth argument: the folder where the gold labels are, fifth argument: the value for window.
+
+
+
+##############################Results#####################################
+
+Window = 6 K = 1 MRR = 0.07067669172932331
+Window = 6 K = 2 MRR = 0.10676691729323308
+Window = 6 K = 3 MRR = 0.13834586466165433
+Window = 6 K = 4 MRR = 0.1593984962406018
+Window = 6 K = 5 MRR = 0.1730827067669172
+Window = 6 K = 6 MRR = 0.18360902255639067
+Window = 6 K = 7 MRR = 0.19026852846401676
+Window = 6 K = 8 MRR = 0.19628356605800173
+Window = 6 K = 9 MRR = 0.1999594223654371
+Window = 6 K = 10 MRR = 0.203117317102279
